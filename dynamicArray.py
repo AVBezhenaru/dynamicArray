@@ -79,19 +79,31 @@ class DynArray:
         self.array = new_array
         self.count -= 1
 
-        if self.count < (self.capacity / 2):
+        if self.count < (self.capacity / 2) and self.count != 0:
             self.capacity = int((self.capacity) / 1.5)
 
 da = DynArray()
-for i in range(19):
+for i in range(8):
     da.append(i)
     print (da[i])
 
 print("self count", da.count)
+print("self capacity", da.capacity)
 
 # da.insert(1, 99)
 
 da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+
+
+
+
 
 
 print("d. count", da.count)
@@ -183,3 +195,5 @@ deleteTEST2()
 #     daTest.delete(10)
 #
 # deleteTEST3()
+
+print(int(10.665555))
