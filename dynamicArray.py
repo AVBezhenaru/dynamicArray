@@ -49,6 +49,8 @@ class DynArray:
 
 
     def delete(self, i):
+        if self.count == 0:
+            return
 
         if i < 0 or i > self.count:
             raise IndexError('Index is out of bounds')
@@ -79,11 +81,13 @@ class DynArray:
         self.array = new_array
         self.count -= 1
 
-        if self.count < (self.capacity / 2) and self.count != 0:
+        if self.count < (self.capacity / 2) and self.count != 16:
             self.capacity = int((self.capacity) / 1.5)
+            if self.capacity < 16:
+                self.capacity = 16
 
 da = DynArray()
-for i in range(8):
+for i in range(32):
     da.append(i)
     print (da[i])
 
@@ -92,6 +96,7 @@ print("self capacity", da.capacity)
 
 # da.insert(1, 99)
 
+da.delete(1)
 da.delete(0)
 da.delete(0)
 da.delete(0)
@@ -100,6 +105,22 @@ da.delete(0)
 da.delete(0)
 da.delete(0)
 da.delete(0)
+da.delete(1)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+da.delete(0)
+
 
 
 
@@ -179,7 +200,7 @@ def deleteTEST2():
 
     daTest.delete(0)
 
-    if daTest.count == 7 and daTest.capacity == 10 and daTest[0] == 1:
+    if daTest.count == 7 and daTest.capacity == 16 and daTest[0] == 1:
         print("TEST OK")
     else:
         print("TEST ERROR")
