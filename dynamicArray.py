@@ -56,7 +56,7 @@ class DynArray:
         len = self.count - 1
         j = 0
         k = 0
-        self.capacity = 16
+
         new_array = self.make_array(self.capacity)
 
         while j != len:
@@ -83,15 +83,15 @@ class DynArray:
             self.capacity = int((self.capacity) / 1.5)
 
 da = DynArray()
-for i in range(8):
+for i in range(19):
     da.append(i)
     print (da[i])
 
 print("self count", da.count)
 
-da.insert(1, 99)
+# da.insert(1, 99)
 
-da.delete(1)
+da.delete(0)
 
 
 print("d. count", da.count)
@@ -101,8 +101,6 @@ print("d. capacity", da.capacity)
 for i in range(da.count):
     # print("d. count", da.count)
     print (da[i])
-
-print("capacity", da.capacity)
 
 
 # TESTS
@@ -145,3 +143,43 @@ insertTEST2()
 #     daTest.insert(52, 99)
 #
 # insertTEST3()
+
+def deleteTEST1():
+    print("delete test 1")
+    daTest = DynArray()
+    for i in range(50):
+        daTest.append(i)
+
+    daTest.delete(0)
+
+    if daTest.count == 49 and daTest.capacity == 64 and daTest[0] == 1:
+        print("TEST OK")
+    else:
+        print("TEST ERROR")
+
+deleteTEST1()
+
+def deleteTEST2():
+    print("delete test 2")
+    daTest = DynArray()
+    for i in range(8):
+        daTest.append(i)
+
+    daTest.delete(0)
+
+    if daTest.count == 7 and daTest.capacity == 10 and daTest[0] == 1:
+        print("TEST OK")
+    else:
+        print("TEST ERROR")
+
+deleteTEST2()
+
+# def deleteTEST3():
+#     print("delete test 3")
+#     daTest = DynArray()
+#     for i in range(8):
+#         daTest.append(i)
+#
+#     daTest.delete(10)
+#
+# deleteTEST3()
