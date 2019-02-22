@@ -49,10 +49,8 @@ class DynArray:
 
 
     def delete(self, i):
-        if self.count == 0:
-            return
 
-        if i < 0 or i > self.count:
+        if i < 0 or i > self.count or self.count == 0:
             raise IndexError('Index is out of bounds')
 
         len = self.count - 1
@@ -87,7 +85,7 @@ class DynArray:
                 self.capacity = 16
 
 da = DynArray()
-for i in range(32):
+for i in range(1):
     da.append(i)
     print (da[i])
 
@@ -95,35 +93,12 @@ print("self count", da.count)
 print("self capacity", da.capacity)
 
 # da.insert(1, 99)
-
+print(da.array)
 da.delete(1)
 da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(1)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
-da.delete(0)
 
 
-
-
+print(da.array)
 
 
 
